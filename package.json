@@ -1,0 +1,26 @@
+{
+    "name": "wait-for-kafka",
+    "version": "1.0.0",
+    "description": "Ensures that certain Kafka topics exist",
+    "main": "dist/wait-for-kafka.js",
+    "author": "Anatoly Zelenin",
+    "license": "MIT",
+    "dependencies": {
+        "bluebird": "^3.5.2",
+        "debug": "^4.0.1",
+        "kafka-node": "^3.0.1"
+    },
+    "scripts": {
+        "start": "./node_modules/.bin/ts-node wait-for-kafka.ts",
+        "build": "./node_modules/.bin/tsc"
+    },
+    "bin": {
+        "wait-for-kafka": "./dist/wait-for-kafka.js"
+    },
+    "devDependencies": {
+        "@types/node": "^10.9.4",
+        "nodemon": "^1.18.4",
+        "ts-node": "^7.0.1",
+        "typescript": "^3.1.3"
+    }
+}
