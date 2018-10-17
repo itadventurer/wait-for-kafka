@@ -1,5 +1,7 @@
 # Ensure existence of Kafka Topics
 
+Install: `npm install -g wait-for-kafka`
+
 This program is able to perform following operations:
 
 1. Waiting for a set of Kafka topics to become available
