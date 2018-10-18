@@ -1,6 +1,6 @@
 {
     "name": "wait-for-kafka",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Ensures that certain Kafka topics exist",
     "main": "dist/wait-for-kafka.js",
     "author": "Anatoly Zelenin",
@@ -12,7 +12,8 @@
     },
     "scripts": {
         "start": "./node_modules/.bin/ts-node wait-for-kafka.ts",
-        "build": "./node_modules/.bin/tsc"
+        "build": "./node_modules/.bin/tsc",
+        "prepack": "./node_modules/.bin/tsc"
     },
     "bin": {
         "wait-for-kafka": "./dist/wait-for-kafka.js"
