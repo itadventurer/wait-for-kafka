@@ -1,12 +1,12 @@
-const debug = require('debug')('showcase:ensure-kafka-topics:debug');
-const error = require('debug')('showcase:ensure-kafka-topics:error');
+const debug = require('debug')('wait-for-kafka:debug');
+const error = require('debug')('wait-for-kafka:error');
 
 async function doesTopicsExists(client, topics: string[]) {
     try {
         await client.topicExistsAsync(topics);
         return true;
     } catch(e) {
-        if(e.constructor.name == 'TopicsNotExistError') {
+        if(e.constructor.name === 'TopicsNotExistError' || e.constructor.name === 'BrokerNotAvailableError') {
             return false;
         } else {
             throw e
@@ -53,7 +53,5 @@ export async function ensure_topics(client, topics:object[]) {
             return false;
         }
     }
-    console.log("return");
     return true;
-
 }
