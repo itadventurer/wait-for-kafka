@@ -67,7 +67,7 @@ from node, use the parameters.
 
 ### Debug settings
 
-* `DEBUG="showcase:*"` all debug outputs for this program
+* `DEBUG="wait-for-kafka:*"` all debug outputs for this program
 * `DEBUG="*"` all debug outputs for this program and for `kafka-node`
 * `unset DEBUG` no debug outputs
 

@@ -1,6 +1,6 @@
 {
     "name": "wait-for-kafka",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Ensures that certain Kafka topics exist",
     "main": "dist/wait-for-kafka.js",
     "author": "Anatoly Zelenin",
@@ -29,5 +29,9 @@
         "url": "https://github.com/azapps/wait-for-kafka.git"
     },
     "homepage": "https://github.com/azapps/wait-for-kafka.git",
-    "keywords": ["Kafka", "Notify", "Event"]
+    "keywords": [
+        "Kafka",
+        "Notify",
+        "Event"
+    ]
 }
