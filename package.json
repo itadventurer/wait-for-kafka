@@ -1,6 +1,6 @@
 {
     "name": "wait-for-kafka",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "Ensures that certain Kafka topics exist",
     "main": "dist/wait-for-kafka.js",
     "author": "Anatoly Zelenin",

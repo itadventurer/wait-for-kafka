@@ -102,15 +102,15 @@ if (require.main === module) {
         wait_between_tries_s = parseInt(process.env.WAIT_BETWEEN_TRIES_S);
     }
 
-    const kafka_url = process.env.KAFKA_URL;
+    const kafka_url = process.env.KAFKA_METADATA_BROKER_LIST;
 
-    const wait_for_topics_raw = process.env.KAFKA_WAIT_FOR_TOPICS;
+    const wait_for_topics_raw = process.env.WAIT_FOR_KAFKA_TOPICS;
     var wait_for_topics_list:string[]|null = null;
     if(wait_for_topics_raw) {
         wait_for_topics_list = wait_for_topics_raw.split(",").map(x => x.trim());
     }
 
-    const ensure_topics_raw = process.env.KAFKA_ENSURE_TOPICS;
+    const ensure_topics_raw = process.env.ENSURE_KAFKA_TOPICS;
     var ensure_topics_list:object[]|null = null;
     if(ensure_topics_raw) {
         ensure_topics_list = JSON.parse(ensure_topics_raw);

@@ -18,10 +18,10 @@ node.
 
 ```sh
 export DEBUG="showcase:*"
-export KAFKA_URL=broker:9092
-export KAFKA_WAIT_FOR_TOPICS=existing_topic
+export KAFKA_METADATA_BROKER_LIST=broker:9092
+export WAIT_FOR_KAFKA_TOPICS=existing_topic
 export WAIT_BETWEEN_TRIES_S=1
-export KAFKA_ENSURE_TOPICS='[{"topic": "new_topic", "partitions": 1, "replicationFactor": 1}]'
+export ENSURE_KAFKA_TOPICS='[{"topic": "new_topic", "partitions": 1, "replicationFactor": 1}]'
 wait-for-kafka
 ```
 
@@ -29,10 +29,10 @@ wait-for-kafka
 
 ```sh
 docker run\
-    -e KAFKA_URL=broker:9092\
-    -e KAFKA_WAIT_FOR_TOPICS=existing_topic,new_topic\
+    -e KAFKA_METADATA_BROKER_LIST=broker:9092\
+    -e WAIT_FOR_KAFKA_TOPICS=existing_topic,new_topic\
     -e DEBUG='showcase:*'\
-    -e KAFKA_ENSURE_TOPICS='[{"topic": "new_topic", "partitions": 1, "replicationFactor": 1}]'\
+    -e ENSURE_KAFKA_TOPICS='[{"topic": "new_topic", "partitions": 1, "replicationFactor": 1}]'\
     azapps/ensure-kafka-topics
 ```
 
@@ -42,11 +42,11 @@ docker run\
 import wait_for_kafka from './wait-for-kafka';
 
 wait_for_kafka(
-    // KAFKA_URL
+    // KAFKA_METADATA_BROKER_LIST
     "localhost:9092",
-    // KAFKA_WAIT_FOR_TOPICS (optional)
+    // WAIT_FOR_KAFKA_TOPICS (optional)
     ["healthcheck"],
-    // KAFKA_ENSURE_TOPICS (optional)
+    // ENSURE_KAFKA_TOPICS (optional)
     [{"topic": "new_topic", "partitions": 1, "replicationFactor": 1}],
     // ABORT_AFTER_TRIES (optional, default: 10)
     10
@@ -63,7 +63,7 @@ from node, use the parameters.
 
 ### Required parameters
 
-* `KAFKA_URL`: Kafka-url.
+* `KAFKA_METADATA_BROKER_LIST`: Kafka-url.
 
 ### Debug settings
 
@@ -73,12 +73,12 @@ from node, use the parameters.
 
 ### Waiting for a set of Kafka topics to become available
 
-* `KAFKA_WAIT_FOR_TOPICS`: comma separated list of topics to wait for
+* `WAIT_FOR_KAFKA_TOPICS`: comma separated list of topics to wait for
   becoming available
 
 ### Creating new topics in the case they are not existent
 
-* `KAFKA_ENSURE_TOPICS`: An JSON array containing objects that get
+* `ENSURE_KAFKA_TOPICS`: An JSON array containing objects that get
   passed to the `createTopics` function of `kafka-node`.
 
   Example:
