@@ -102,7 +102,7 @@ if (require.main === module) {
         wait_between_tries_s = parseInt(process.env.WAIT_BETWEEN_TRIES_S);
     }
 
-    const kafka_url = process.env.KAFKA_METADATA_BROKER_LIST;
+    const kafka_url = process.env.KAFKA_BOOTSTRAP_SERVERS;
 
     const wait_for_topics_raw = process.env.WAIT_FOR_KAFKA_TOPICS;
     var wait_for_topics_list:string[]|null = null;

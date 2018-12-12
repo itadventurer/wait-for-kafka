@@ -18,7 +18,7 @@ node.
 
 ```sh
 export DEBUG="showcase:*"
-export KAFKA_METADATA_BROKER_LIST=broker:9092
+export KAFKA_BOOTSTRAP_SERVERS=broker:9092
 export WAIT_FOR_KAFKA_TOPICS=existing_topic
 export WAIT_BETWEEN_TRIES_S=1
 export ENSURE_KAFKA_TOPICS='[{"topic": "new_topic", "partitions": 1, "replicationFactor": 1}]'
@@ -29,7 +29,7 @@ wait-for-kafka
 
 ```sh
 docker run\
-    -e KAFKA_METADATA_BROKER_LIST=broker:9092\
+    -e KAFKA_BOOTSTRAP_SERVERS=broker:9092\
     -e WAIT_FOR_KAFKA_TOPICS=existing_topic,new_topic\
     -e DEBUG='showcase:*'\
     -e ENSURE_KAFKA_TOPICS='[{"topic": "new_topic", "partitions": 1, "replicationFactor": 1}]'\
@@ -42,7 +42,7 @@ docker run\
 import wait_for_kafka from './wait-for-kafka';
 
 wait_for_kafka(
-    // KAFKA_METADATA_BROKER_LIST
+    // KAFKA_BOOTSTRAP_SERVERS
     "localhost:9092",
     // WAIT_FOR_KAFKA_TOPICS (optional)
     ["healthcheck"],
@@ -63,7 +63,7 @@ from node, use the parameters.
 
 ### Required parameters
 
-* `KAFKA_METADATA_BROKER_LIST`: Kafka-url.
+* `KAFKA_BOOTSTRAP_SERVERS`: Kafka-url.
 
 ### Debug settings
 
